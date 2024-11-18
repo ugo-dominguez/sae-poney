@@ -1,9 +1,10 @@
-idPers → nomPers, prenomPers, mailPers, poidsPers  
-idCli → nomPers, prenomPers, mailPers  
-idMon → nomPers, prenomPers, mailPers  
-idPon → nomPon, poidsMax  
+idPers → nomPers, prenomPers, mailPers, poidsPers 
+idAdh → nomPers, prenomPers, mailPers, poidsPers, cotisationPaye 
+idMon → nomPers, prenomPers, mailPers, poidsPers 
+idCou → nbPersMax, dateCou, duree 
+idPon → nomPon, poidsMax 
 
-idCou → nbPers  
-idCou, dateDebut, heure → idMon, idPon, duree, nbPers   
+idCou, idPon → nomPon, poidsMax, nbPersMax, dateCou, duree 
+idCou, idAdh → nbPersMax, dateCou, duree, nomPers, prenomPers, mailPers, poidsPers, cotisationPaye, paye
 
 https://github.com/ugo-dominguez/sae-poney
