@@ -82,6 +82,24 @@ begin
     end if;
 end |
 
+create or replace trigger chevauche before insert on COURS for each row
+begin
+    declare mes varchar(64);
+
+    if exists (
+        select idCours
+        from COURS
+        where idMon = new.idMon
+            and (
+                new.dateCou between dateCou and DATE_ADD(dateCou, INTERVAL duree HOUR)
+                or dateCou between new.dateCou and DATE_ADD(new.dateCou, INTERVAL new.duree HOUR)
+            )
+    ) then
+        set mes = CONCAT("Le moniteur a déjà un cours pendant cet horaire.");
+        signal SQLSTATE '45000' set MESSAGE_TEXT = mes;
+    end if;
+end |
+
 create or replace trigger verifierInscription before insert on INSCRIRE for each row
 begin
     declare nbMax int;
