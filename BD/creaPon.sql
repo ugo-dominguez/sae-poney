@@ -1,0 +1,57 @@
+-- creation des tables de la BD Poney
+
+CREATE TABLE PERSONNE(
+    idPers INT(8) PRIMARY KEY,
+    nomPers VARCHAR(42),
+    prenomPers VARCHAR(42),
+    mailPers VARCHAR(42),
+    poidsPers INT(3)
+);
+
+CREATE TABLE ADHERENT(
+    idAdh INT(8),
+    cotisationPaye BOOLEAN,
+    PRIMARY KEY (idAdh)
+);
+
+CREATE TABLE MONITEUR(
+    idMon INT(8),
+    PRIMARY KEY (idMon)
+);
+
+CREATE TABLE PONEY(
+    idPon INT(8) PRIMARY KEY,
+    nomPon VARCHAR(42),
+    poidsMax INT(3)
+);
+
+CREATE TABLE COURS(
+    idCours INT(8) PRIMARY KEY,
+    idMon INT(8),
+    nbPersMax INT(2),
+    dateCou DATE,
+    duree INT(1),
+    prixCou DECIMAL(5,2)
+);
+
+CREATE TABLE PARTICIPER(
+    idCours INT(8),
+    idPon INT(8),
+    PRIMARY KEY (idCours, idPon)
+);
+
+CREATE TABLE INSCRIRE(
+    idCours INT(8),
+    idAdh INT(8),
+    paye BOOLEAN
+);
+
+-- creation des clés etrangères de la BD Poney
+
+ALTER TABLE ADHERENT ADD FOREIGN KEY (idAdh) REFERENCES PERSONNE(idPers);
+ALTER TABLE MONITEUR ADD FOREIGN KEY (idMon) REFERENCES PERSONNE(idPers);
+ALTER TABLE COURS ADD FOREIGN KEY (idMon) REFERENCES MONITEUR(idMon);
+ALTER TABLE PARTICIPER ADD FOREIGN KEY (idCours) REFERENCES COURS(idCours);
+ALTER TABLE PARTICIPER ADD FOREIGN KEY (idPon) REFERENCES PONEY(idPon);
+ALTER TABLE INSCRIRE ADD FOREIGN KEY (idCours) REFERENCES COURS(idCours);
+ALTER TABLE INSCRIRE ADD FOREIGN KEY (idAdh) REFERENCES ADHERENT(idAdh);
