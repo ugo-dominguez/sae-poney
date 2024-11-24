@@ -151,4 +151,52 @@ begin
         signal SQLSTATE '45000' SET MESSAGE_TEXT = mes;
     end if;
 end |
+
+CREATE OR REPLACE TRIGGER verifierRepos BEFORE INSERT ON PARTICIPER FOR EACH ROW 
+BEGIN
+    DECLARE mes VARCHAR(1024) DEFAULT '';
+    
+    DECLARE newDateCou DATETIME;
+    DECLARE newDuree INT;
+
+    DECLARE debutDernierCours DATETIME DEFAULT NULL;
+    DECLARE dureeDernierCours INT DEFAULT 0;
+    DECLARE reposNecessaire INT DEFAULT 0;
+    DECLARE reposEffectif INT DEFAULT 0;
+
+    -- Récupère le nouveau cours
+    SELECT COURS.dateCou, COURS.duree 
+    INTO newDateCou, newDuree
+    FROM COURS
+    WHERE COURS.idCours = NEW.idCours;
+
+    -- Récupère le dernier cours
+    SELECT COURS.dateCou, COURS.duree 
+    INTO debutDernierCours, dureeDernierCours
+    FROM COURS 
+    JOIN PARTICIPER ON COURS.idCours = PARTICIPER.idCours
+    WHERE PARTICIPER.idPon = NEW.idPon
+    ORDER BY COURS.dateCou DESC
+    LIMIT 1;
+
+    IF debutDernierCours IS NOT NULL THEN
+        -- Calcul du temps de repos nécessaire (30min pour 1h, 1h pour 2h)
+        SET reposNecessaire = dureeDernierCours * 30; -- en minutes
+        
+        -- Calcul du temps de repos effectif entre les deux cours
+        SET reposEffectif = TIMESTAMPDIFF(MINUTE, 
+            TIMESTAMPADD(MINUTE, dureeDernierCours * 60, debutDernierCours), -- fin du dernier cours
+            newDateCou -- début du nouveau cours
+        );
+        
+        IF reposEffectif < reposNecessaire THEN
+            SET mes = CONCAT("Le poney ", new.idPon, " n'a pas assez de repos (manque ", 
+                reposNecessaire - reposEffectif, " minutes). Il faut ", 
+                reposNecessaire, " minutes de repos après un cours de ", 
+                dureeDernierCours, " heure(s).");
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = mes;
+        END IF;
+    END IF;
+END |
+
 delimiter ;
