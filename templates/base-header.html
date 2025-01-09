@@ -3,16 +3,22 @@
 
 {% block header %}
 <header>
+    <nav>
+        <a href="">Acceuil</a>
+        <a href="">Poneys</a>
+        <a href="">Planning</a>
+        <a href="">Contact</a>
+    </nav>
     <h1>Poney Club Orléans</h1>
-    <a href="">Acceuil</a>
-    <a href="">Poneys</a>
-    <a href="">Planning</a>
-    <a href="">Contact</a>
-    <form action="{}" method="post">
-        <button type="submit">Connexion</button>
-    </form>
-    <form action="{}" method="post">
-        <button type="submit">Adhérer</button>
-    </form>
+    <div class="actions">
+        <form action="{}" method="post">
+            <button class="connexion" type="submit">Connexion</button>
+        </form>
+        <form action="{}" method="post">
+            <button class="adherer" type="submit">Adhérer</button>
+        </form>
+    </div>
 </header>
 {% endblock %}
+
+{% block content %}{% endblock %}

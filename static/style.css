@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 30px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f4ec;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+  
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+  
+
+nav a:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+header .actions {
+    display: flex;
+    gap: 10px;
+}
+
+header .actions button {
+    background-color: #4d3427;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+header .actions button:hover {
+    background-color: #5e4031;
+}
+
+header .actions button.connexion {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #4d3427;
+    padding: 8px 12px;
+}
+
+header .actions button.connexion:hover {
+    background-color: #4d3427;
+    color: white;
+}
