@@ -1,7 +1,9 @@
 from django.contrib.auth.views import LoginView
-from .forms import UsernamePasswordLoginForm
+from django.contrib import messages
 
 class CustomLoginView(LoginView):
-    template_name = 'login.html' 
-    form_class = UsernamePasswordLoginForm  
-    redirect_authenticated_user = True  
+    template_name = 'login.html'
+
+    def form_valid(self, form):
+        messages.success(self.request, "Vous êtes connecté avec succès !")
+        return super().form_valid(form)
