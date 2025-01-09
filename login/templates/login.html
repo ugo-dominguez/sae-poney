@@ -1,0 +1,30 @@
+{% extends "base-header.html" %}
+{% load static %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/loginstyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-form-container">
+        <h1>Connexion</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+            <button type="submit" class="submit-button">Se connecter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
