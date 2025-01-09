@@ -51,7 +51,7 @@ header .actions {
     gap: 10px;
 }
 
-header .actions button {
+header .actions a {
     background-color: #4d3427;
     color: white;
     border: none;
@@ -61,18 +61,18 @@ header .actions button {
     cursor: pointer;
 }
 
-header .actions button:hover {
+header .actions a:hover {
     background-color: #5e4031;
 }
 
-header .actions button.connexion {
+header .actions a.connexion {
     background-color: transparent;
     color: black;
     border: 1px solid #4d3427;
     padding: 8px 12px;
 }
 
-header .actions button.connexion:hover {
+header .actions a.connexion:hover {
     background-color: #4d3427;
     color: white;
 }
