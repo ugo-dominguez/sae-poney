@@ -52,6 +52,7 @@ header .actions {
 }
 
 header .actions a {
+    text-decoration: none;
     background-color: #4d3427;
     color: white;
     border: none;
