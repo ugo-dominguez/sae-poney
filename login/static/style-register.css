@@ -68,3 +68,23 @@ input {
 .submit-button:hover {
     background-color: #5c3317;
 }
+
+.form-errors {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.error {
+    color: #dc3545; 
+    font-size: 0.85rem;
+    margin-top: 5px;
+}

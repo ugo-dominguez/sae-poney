@@ -43,6 +43,14 @@ class UsernamePasswordLoginForm(AuthenticationForm):
     
 
 class RegistrationForm(UserCreationForm):
+    username = forms.CharField(
+        max_length=150,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'Nom d’utilisateur',
+            'class': 'form-input'
+        })
+    )
     first_name = forms.CharField(
         max_length=30,
         required=True,
@@ -69,5 +77,4 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
-
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
