@@ -2,10 +2,18 @@
 {% load static %}
 
 {% block title %}Inscription{% endblock %}
+{% if form.non_field_errors %}
+<div class="form-errors">
+    {% for error in form.non_field_errors %}
+    <p class="error-message">{{ error }}</p>
+    {% endfor %}
+</div>
+{% endif %}
 
 {% block styles %}
 <link href="{% static 'style-register.css'%}" rel="stylesheet" />
 {% endblock %}
+
 
 {% block content %}
 <div class="register-page">
@@ -15,34 +23,40 @@
             {% csrf_token %}
             
             <div class="form-group">
+                <label for="id_username">Nom d'utilisateur</label>
+                {{ form.username }}
+                <div class="error">{{ form.username.errors }}</div>
+            </div>
+            
+            <div class="form-group">
                 <label for="id_last_name">Nom</label>
                 {{ form.last_name }}
-                {{ form.last_name.errors }}
+                <div class="error">{{ form.last_name.errors }}</div>
             </div>
-
+            
             <div class="form-group">
                 <label for="id_first_name">Prénom</label>
                 {{ form.first_name }}
-                {{ form.first_name.errors }}
+                <div class="error">{{ form.first_name.errors }}</div>
             </div>
-
+            
             <div class="form-group">
                 <label for="id_email">E-mail</label>
                 {{ form.email }}
-                {{ form.email.errors }}
+                <div class="error">{{ form.email.errors }}</div>
             </div>
-
+            
             <div class="form-group">
                 <label for="id_password1">Mot de passe</label>
                 {{ form.password1 }}
-                {{ form.password1.errors }}
+                <div class="error">{{ form.password1.errors }}</div>
             </div>
-
+            
             <div class="form-group">
-                <label for="id_password2">Confirmer Mot de passe</label>
+                <label for="id_password2">Confirmer le mot de passe</label>
                 {{ form.password2 }}
-                {{ form.password2.errors }}
-            </div>
+                <div class="error">{{ form.password2.errors }}</div>
+            </div>            
 
             <div class="form-actions">
                 <button type="submit" class="submit-button">Continuer</button>
