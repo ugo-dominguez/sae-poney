@@ -2,8 +2,8 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import CustomUser
 
 class UsernamePasswordLoginForm(AuthenticationForm):
     INVALID_CREDENTIALS_MESSAGE = _("La combinaison nom d'utilisateur et mot de passe est invalide.")
@@ -76,5 +76,13 @@ class RegistrationForm(UserCreationForm):
     )
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+
+class CustomAuthenticationForm(AuthenticationForm):
+    def confirm_login_allowed(self, user):
+        if not user.is_active:
+            raise forms.ValidationError(
+                "Ce compte est inactif.",
+                code='inactive',
+            )
