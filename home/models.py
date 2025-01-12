@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -16,12 +17,6 @@ class Adherent(models.Model):
     cotisationPaye = models.BooleanField()
 
 
-class Moniteur(models.Model):
-    idMon = models.OneToOneField(
-        Personne, on_delete=models.CASCADE, primary_key=True, related_name="moniteur"
-    )
-
-
 class Poney(models.Model):
     idPon = models.AutoField(primary_key=True)
     nomPon = models.CharField(max_length=42)
@@ -30,9 +25,7 @@ class Poney(models.Model):
 
 class Cours(models.Model):
     idCours = models.AutoField(primary_key=True)
-    idMon = models.ForeignKey(
-        Moniteur, on_delete=models.CASCADE, related_name="cours"
-    )
+    idMon = models.ForeignKey(User, on_delete=models.CASCADE)
     nbPersMax = models.IntegerField()
     dateCou = models.DateTimeField()
     duree = models.PositiveSmallIntegerField()
