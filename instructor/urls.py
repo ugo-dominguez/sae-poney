@@ -1,8 +1,8 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 
-from .views import manage_planning
+from .views import add_cours
 
 urlpatterns = [
-    path('', manage_planning, name='manage_planning'),
+    path('new_lesson/', add_cours, name='new_lesson'),
 ]
