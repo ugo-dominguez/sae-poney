@@ -8,8 +8,13 @@
         <a href="">Poneys</a>
         <a href="/planning/">Planning</a>
         <a href="">Contact</a>
+        {% if user.is_authenticated and user.is_superuser %}
+            <a href="{% url 'new_lesson' %}">Moniteur</a>
+        {% endif %}
     </nav>
+    
     <h1>Poney Club Orléans</h1>
+    
     <div class="actions">
         {% if user.is_authenticated %}
         <form method="post" action="{% url 'logout' %}">
