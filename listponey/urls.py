@@ -1,7 +1,6 @@
-# login/urls.py
 from django.urls import path
-from .views import listponey
+from . import views
 
 urlpatterns = [
-    path('listponey/', listponey, name='listponey'),
+    path('listponey/', views.listponey, name='listponey'),
 ]
