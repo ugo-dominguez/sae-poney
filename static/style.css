@@ -61,7 +61,7 @@ header .actions {
     gap: 10px;
 }
 
-header .actions a {
+header .actions a, .logout-button {
     text-decoration: none;
     background-color: #4d3427;
     color: white;
@@ -83,7 +83,18 @@ header .actions a.connexion {
     padding: 8px 12px;
 }
 
-header .actions a.connexion:hover {
+header .actions a.connexion:hover { 
     background-color: #4d3427;
     color: white;
+}
+
+.logout-button:hover {
+    background-color: #a13131;
+    color: white;
+}
+
+.logout-button {
+    border: #a13131 2px solid;
+    color: #a13131;
+    background-color: transparent;
 }
