@@ -1,0 +1,12 @@
+{% extends "base-header.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h1>Ajouter un nouveau cours</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter</button>
+</form>
+{% endblock %}

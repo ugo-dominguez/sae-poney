@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'planning',
     'listponey',
+    'instructor',
 ]
 
 MIDDLEWARE = [
