@@ -1,0 +1,50 @@
+[
+    {
+        "model": "home.poney",
+        "pk": 1,
+        "fields": {
+            "nomPon": "John",
+            "poidsMax": 100
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 2,
+        "fields": {
+            "nomPon": "Tom",
+            "poidsMax": 65
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 3,
+        "fields": {
+            "nomPon": "Patrick",
+            "poidsMax": 90
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 4,
+        "fields": {
+            "nomPon": "Cheval",
+            "poidsMax": 78
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 5,
+        "fields": {
+            "nomPon": "Pénélope",
+            "poidsMax": 112
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 6,
+        "fields": {
+            "nomPon": "Bruce",
+            "poidsMax": 123
+        }
+    }
+]
