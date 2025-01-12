@@ -1,7 +1,12 @@
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
+
 from django.contrib import messages
 from .forms import RegistrationForm
+
 
 class CustomLoginView(LoginView):
     template_name = 'login.html'
@@ -27,3 +32,17 @@ def register(request):
         form = RegistrationForm()
 
     return render(request, "register.html", {"form": form})
+
+
+User = get_user_model()
+
+@login_required
+def adhesion(request):
+    if request.method == "POST":
+        if 'oui' in request.POST:  
+            request.user.adherent = True
+            request.user.save()
+            return redirect("home")  
+        elif 'non' in request.POST:  
+            return redirect("home")  
+    return render(request, "adhesion.html")
