@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
 
 from django.contrib.auth.models import User
+from login.models import CustomUser
 from django.db import models
 from django.db.models import Count
 
@@ -28,7 +29,7 @@ class Poney(models.Model):
 
 class Cours(models.Model):
     idCours = models.AutoField(primary_key=True)
-    idMon = models.ForeignKey(User, on_delete=models.CASCADE)
+    idMon = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     nbPersMax = models.IntegerField()
     dateCou = models.DateTimeField()
     duree = models.PositiveSmallIntegerField()
