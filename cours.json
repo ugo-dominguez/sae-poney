@@ -1,5 +1,15 @@
 [
     {
+        "model": "home.personne", 
+        "pk": 1, 
+        "fields": {
+            "nomPers": "Paire",
+            "prenomPers": "Tom", 
+            "mailPers": "tom@paire.com",
+            "poidsPers": 75
+        }
+    },
+    {
         "model": "home.moniteur", 
         "pk": 1, 
         "fields": {
