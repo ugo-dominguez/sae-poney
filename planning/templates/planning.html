@@ -1,5 +1,6 @@
 {% extends "base-header.html" %}
 {% load static %}
+{% load planning_filters %}
 {% block title %} Planning {% endblock %}
 
 {% block styles %}
@@ -7,31 +8,46 @@
 {% endblock %}
 
 {% block content %}
-<main>
-    <h1 class="plan">Planning</h1>
-    <div class="jours">
-        <span>Lundi</span>
-        <span>Mardi</span>
-        <span>Mercredi</span>
-        <span>Jeudi</span>
-        <span>Vendredi</span>
-        <span>Samedi</span>
-        <span>Dimanche</span>
+<div class="planning">
+    <h1>Planning</h1>
+    <h2>Semaine {{ week_number }}</h2>
+    <div class="week">
+        {% for day, courses in week_planning.items %}
+            <div class="day">
+                <div class="day-header">{{ day }}</div>
+                {% for course in courses %}
+                    {% if course.nb_inscriptions >= course.nbPersMax %}
+                        <div class="course full">
+                            <p>Cours de poney {{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <span>PLEIN</span>
+                        </div>
+                    {% else %}
+                        <div class="course available">
+                            <p>Cours de poney {{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <button class="book">Réserver</button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <!--
+        <div class="course available">
+            <p>Cours de poney 8h - 9h</p>
+            <button>Réserver</button>
+        </div>
+
+        <div class="course full">
+            <p>Cours de poney 14h - 16h</p>
+            <span>PLEIN</span>
+        </div>
+
+        <div class="course reserved">
+            <p>Cours de poney 13h - 15h</p>
+            <button>Annuler la réservation</button>
+        </div>
+        -->
+
     </div>
-    <div class="heures">
-        <span>8h</span>
-        <span>9h</span>
-        <span>10h</span>
-        <span>11h</span>
-        <span>12h</span>
-        <span>13h</span>
-        <span>14h</span>
-        <span>15h</span>
-        <span>16h</span>
-        <span>17h</span>
-        <span>18h</span>
-        <span>19h</span>
-        <span>20h</span>
-    </div>
-</main>
+  </div>
 {% endblock %}
