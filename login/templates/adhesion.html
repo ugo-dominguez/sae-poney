@@ -1,0 +1,21 @@
+{% extends "base-header.html" %}
+{% load static %}
+
+{% block title %}Adhésion{% endblock %}
+{% block styles %}
+<link href="{% static 'adhesionstyle.css'%}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<div class="adhesion-page">
+    <div class="adhesion-container">
+        <h1>Souhaitez-vous adhérez maintenant ?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit" name="non" class="adhesion-button non">Non</button>
+                <button type="submit" name="oui" class="adhesion-button oui">Oui</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
