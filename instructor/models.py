@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from login.models import CustomUser
 from django.db import models
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -14,7 +14,7 @@ def ajouter_cours(request):
         duree = request.POST.get("duree")
         prixCou = request.POST.get("prixCou")
         
-        moniteur = get_object_or_404(User, pk=idMon)
+        moniteur = get_object_or_404(CustomUser, pk=idMon)
         
         cours = Cours.objects.create(
             idMon=moniteur,
