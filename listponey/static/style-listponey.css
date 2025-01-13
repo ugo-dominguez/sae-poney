@@ -1,0 +1,90 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ajout de marges pour éloigner le contenu des bords */
+.container {
+    margin: 20px; /* Marges sur tous les côtés */
+}
+
+/* Titre principal */
+h2 {
+    text-align: left; /* Aligner à gauche */
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+/* Formulaire de recherche */
+.search-form {
+    text-align: left; /* Aligner à gauche */
+    margin-bottom: 20px; /* Espacement entre la barre de recherche et le titre */
+    display: flex;
+    justify-content: flex-start;
+    gap: 0; /* Pas d'espace entre les éléments */
+}
+
+/* Inverser la barre de recherche et le bouton */
+.search-input {
+    padding: 10px;
+    width: 300px; /* Augmenter la largeur de la zone de texte */
+    margin-right: 0; /* Pas de marge à droite */
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #4d3427;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; /* Bords arrondis */
+}
+
+.search-button:hover {
+    background-color: #5e4031;
+}
+
+/* Container des poneys */
+.poneys-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet d'ajuster les cartes sur plusieurs lignes */
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 20px; /* Espacement entre les poneys */
+}
+
+/* Carte d'un poney */
+.poney-card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bords arrondis des cartes */
+    width: calc(20% - 20px); /* Chaque poney prend 20% de la largeur moins l'espace entre eux */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Assurer que les cartes ne dépassent pas 5 par ligne */
+.poneys-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%; /* Assure que les cartes prennent toute la largeur */
+}
+
+/* Titres et textes des cartes */
+.poney-card h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.poney-card p {
+    font-size: 14px;
+    color: #555;
+}

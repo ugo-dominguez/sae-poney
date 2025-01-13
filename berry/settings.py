@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login',
     'home',
     'planning',
+    'listponey',
     'instructor',
 ]
 

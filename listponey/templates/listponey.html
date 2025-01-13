@@ -1,0 +1,41 @@
+{% extends "base-header.html" %}
+{% load static %}
+
+{% block title %} Poneys {% endblock %}
+
+{% block styles %}
+<link href="{% static 'style-listponey.css'%}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<!-- Conteneur pour ajouter des marges autour de la page -->
+<div class="container">
+    <!-- Barre de recherche inversée -->
+    <form method="get" action="{% url 'listponey' %}" class="search-form">
+        <button type="submit" class="search-button">Rechercher</button>
+        <input 
+            type="text" 
+            name="q" 
+            placeholder="Rechercher un poney..." 
+            value="{{ query }}" 
+            class="search-input"
+        >
+    </form>
+
+    <h2>Nos Poneys</h2>
+
+    <!-- Affichage des poneys -->
+    <div class="poneys-container">
+        {% for ligne in poneys_par_lignes %}
+            <div class="poneys-row">
+                {% for poney in ligne %}
+                    <div class="poney-card">
+                        <h3>{{ poney.nomPon }}</h3>
+                        <p>Poids maximum : {{ poney.poidsMax }} kg</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

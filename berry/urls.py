@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('login.urls')),
     path('', include('planning.urls')),
-    path('', include('instructor.urls'))
+    path('', include('listponey.urls')),
+    path('', include('instructor.urls')),
 ]
