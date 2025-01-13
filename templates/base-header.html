@@ -8,18 +8,36 @@
         <a href="/listponey/">Poneys</a>
         <a href="/planning/">Planning</a>
         <a href="">Contact</a>
+        {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'new_lesson' %}">Moniteur</a>
+        {% endif %}
     </nav>
+    
     <h1>Poney Club Orléans</h1>
+    
     <div class="actions">
-        <a class="connexion" type="submit">Connexion</a>
-        <a class="adherer" type="submit">Adhérer</a>
+        {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="logout-button" type="submit">Se déconnecter</button>
+        </form>
+
+        {% else %}
+            <a class="connexion" href="/login/">Connexion</a>
+            <a class="connexion" href="/register/">S'inscire</a>
+        {% endif %}
+        
+        <a class="adherer" href="">Adhérer</a>
     </div>
 </header>
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block footer %}
 <footer>
     <p><strong>8 Route de Concyr</strong></p>
     <p><strong>45 590 SAINT CYR EN VAL</strong></p>
     <p><strong>02 38 69 25 65</strong></p>
 </footer>
 {% endblock %}
-
-{% block content %}{% endblock %}
