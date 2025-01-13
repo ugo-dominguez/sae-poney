@@ -14,4 +14,5 @@ Ajout d'un fichier requierements.txt, dans le but de commencer le developpement 
 
 ## Commandes utiles
 Pour injécter les poneys dans la BD faire la commande suivante dans le terminal: ```python manage.py loaddata poneys.json```
+
 Pour vider la BD il faut faire ```python manage.py flush```
