@@ -6,7 +6,7 @@
     <nav>
         <a href="/">Accueil</a>
         <a href="/listponey/">Poneys</a>
-        <a href="/planning/{{ year }}/{{ week }}">Planning</a>
+        <a href="/default_planning/">Planning</a>
         <a href="">Contact</a>
         {% if user.is_authenticated and user.is_staff %}
             <a href="{% url 'new_lesson' %}">Moniteur</a>

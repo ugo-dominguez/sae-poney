@@ -10,13 +10,6 @@
         }
     },
     {
-        "model": "home.moniteur", 
-        "pk": 1, 
-        "fields": {
-            "idMon": 1
-        }
-    },
-    {
         "model": "home.cours", 
         "pk": 1, 
         "fields": {
