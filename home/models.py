@@ -20,10 +20,6 @@ class Adherent(models.Model):
     )
     cotisationPaye = models.BooleanField()
 
-class Moniteur(models.Model):
-    idMon = models.OneToOneField(
-        Personne, on_delete=models.CASCADE, primary_key=True, related_name="moniteur"
-    )
 
 class Poney(models.Model):
     idPon = models.AutoField(primary_key=True)
