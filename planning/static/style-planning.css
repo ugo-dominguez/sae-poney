@@ -16,13 +16,21 @@
   
 .week {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: auto repeat(7, 1fr) auto;
     gap: 10px;
     margin: 0 auto;
     max-width: 1600px;
+    align-items: stretch;
+}
+
+.week-navigation {
+    grid-column: span 1;
+    display: flex;
+    max-height: min-content;
 }
 
 .week-button {
+    max-height: fit-content;
     text-decoration: none;
     border: none;
     background-color: #4d3427;
