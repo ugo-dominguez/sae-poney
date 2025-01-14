@@ -23,12 +23,14 @@
                 {% for course in courses %}
                     {% if course.nb_inscriptions >= course.nbPersMax %}
                         <div class="course full">
-                            <p>Cours de poney {{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <p>Cours de poney</p>
+                            <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
                             <span>PLEIN</span>
                         </div>
                     {% else %}
                         <div class="course available">
-                            <p>Cours de poney {{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <p>Cours de poney</p>
+                            <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
                             <button class="book">Réserver</button>
                         </div>
                     {% endif %}
