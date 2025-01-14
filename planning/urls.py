@@ -6,4 +6,5 @@ from .views import planning
 
 urlpatterns = [
     path('planning/', planning, name='planning'),
+    path('planning/<int:year>/<int:week_number>/', planning, name='planning')
 ]

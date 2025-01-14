@@ -16,10 +16,25 @@
   
 .week {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     gap: 10px;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1600px;
+}
+
+.week-button {
+    text-decoration: none;
+    border: none;
+    background-color: #4d3427;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.week-button:hover {
+    background-color: #5e4031;
 }
   
 .day {
