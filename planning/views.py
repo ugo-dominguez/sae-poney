@@ -1,20 +1,15 @@
 from datetime import datetime
 
-from django.db import transaction
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.db import transaction
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404, render
 
-from .models import get_week, get_courses_by_week, get_reserved_courses
-from home.models import Inscrire, Cours
+from home.models import Cours, Demande, Inscrire
 from login.models import CustomUser
 
-from django.http import JsonResponse
-from django.shortcuts import render
-
-from home.models import Demande, get_courses_by_week
-
 from .forms import PrivateLessonForm
+from .models import get_courses_by_week, get_reserved_courses, get_week
 
 
 def ask_private_lesson(request):
@@ -31,9 +26,11 @@ def ask_private_lesson(request):
                 accepte=False,
             )        
         except Exception:
-            return JsonResponse({"message": "Erreur lors de la création de la demande"})
-        
-        return JsonResponse({"message": "Demande prise en compte avec succès"})
+            messages.error(request, "Erreur lors de la création de la demande")
+        else:
+            messages.success(request, "Demande prise en compte avec succès")
+    
+    return render(request, 'private-lessson.html', {"private_lesson_form": PrivateLessonForm()})
 
 
 def reserver_cours(request, id_cours):
@@ -103,5 +100,4 @@ def planning(request,
         "end": end.date(),
         "reserved": reserved,
         "week_number": week_number,
-        "private_lesson_form": PrivateLessonForm(),
     })
