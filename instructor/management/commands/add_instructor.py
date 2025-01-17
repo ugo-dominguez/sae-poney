@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from login.models import CustomUser
+from home.models import CustomUser
 
 class Command(BaseCommand):
     help = "Ajoute un moniteur à la base de données"
