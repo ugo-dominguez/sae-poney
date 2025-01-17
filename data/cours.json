@@ -1,21 +1,11 @@
 [
     {
-        "model": "home.personne", 
-        "pk": 1, 
-        "fields": {
-            "nomPers": "Paire",
-            "prenomPers": "Tom", 
-            "mailPers": "tom@paire.com",
-            "poidsPers": 75
-        }
-    },
-    {
         "model": "home.cours", 
         "pk": 1, 
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 1,
-            "dateCou": "2025-01-16T09:00:00Z",
+            "dateCou": "2025-01-25T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -26,7 +16,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 1,
-            "dateCou": "2025-01-16T09:00:00Z",
+            "dateCou": "2025-01-24T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -37,7 +27,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 10,
-            "dateCou": "2025-01-14T09:00:00Z",
+            "dateCou": "2025-01-24T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -48,7 +38,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 10,
-            "dateCou": "2025-01-14T09:00:00Z",
+            "dateCou": "2025-01-22T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -59,7 +49,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 10,
-            "dateCou": "2025-01-14T09:00:00Z",
+            "dateCou": "2025-01-21T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -70,7 +60,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 10,
-            "dateCou": "2025-01-15T09:00:00Z",
+            "dateCou": "2025-01-20T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
@@ -81,7 +71,7 @@
         "fields": {
             "idMon_id": 1,
             "nbPersMax": 10,
-            "dateCou": "2025-01-13T09:00:00Z",
+            "dateCou": "2025-01-20T09:00:00Z",
             "duree": 1,
             "prixCou": "25.00"
         }
