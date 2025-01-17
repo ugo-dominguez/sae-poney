@@ -9,7 +9,7 @@
         <a href="/planning/">Planning</a>
         <a href="">Contact</a>
         {% if user.is_authenticated and user.is_staff %}
-            <a href="{% url 'new_lesson' %}">Moniteur</a>
+            <a href="{% url 'dashboard' %}">Tableau de bord</a>
         {% endif %}
     </nav>
     

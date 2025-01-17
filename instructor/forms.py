@@ -1,6 +1,5 @@
 from django import forms
 
-from home.models import Cours
 from login.models import CustomUser
 
 
@@ -13,3 +12,15 @@ class CoursForm(forms.Form):
         label="Durée du cours"
     )
     prixCou = forms.DecimalField(max_digits=5, decimal_places=2, label="Prix du cours")
+
+class PoneyForm(forms.Form):
+    nomPon = forms.CharField(
+        max_length=42, 
+        label="Nom du Poney", 
+        widget=forms.TextInput(attrs={"placeholder": "Entrez le nom du poney"})
+    )
+    poidsMax = forms.IntegerField(
+        min_value=1, 
+        label="Poids maximum (kg)", 
+        widget=forms.NumberInput(attrs={"placeholder": "Entrez le poids maximum"})
+    )

@@ -1,0 +1,62 @@
+{% extends "base-header.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block styles %}
+    <link href="{% static 'manage.css'%}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<main style="padding:10px">
+    <div style="display: flex; align-items:center">
+        <h1>Tableau de bord</h1>
+        
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div style="display: flex; gap: 20px;">
+        <div class="dashboard-section">
+            <h2>Mes prochains cours :</h2>
+
+            {% for day, lessons in days.items %}
+                <h3>{{day}} :</h3>
+                
+                {% for lesson in lessons %}
+                    <div class="lesson">
+                        <h4>Cours de {{lesson.time}}</h4>
+                        <p>{{lesson.duree}} heure.s</p>
+                        <p>{{lesson.nbPersMax}} personne.s</p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="dashboard-section">
+            <h3>Ajouter un cours :</h2>
+
+            <form class="ajout_bd" method="POST" action="{% url 'new_lesson' %}">
+                {% csrf_token %}
+                {{ new_lesson_form.as_p }}
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+        <div class="dashboard-section">
+            <h3>Ajouter un poney :</h2>
+
+            <form class="ajout_bd" method="POST" action="{% url 'new_poney' %}">
+                {% csrf_token %}
+                {{ new_poney_form.as_p }}
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
