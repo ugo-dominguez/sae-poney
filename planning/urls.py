@@ -1,8 +1,8 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
 
-from .views import planning, reserver_cours, annuler_reservation, ask_private_lesson
-
+from .views import (annuler_reservation, ask_private_lesson, planning,
+                    reserver_cours)
 
 urlpatterns = [
     path('default_planning/', planning, name='default_planning'),
