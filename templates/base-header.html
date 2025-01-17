@@ -29,17 +29,6 @@
             <a class="connexion" href="/register/">S'inscire</a>
         {% endif %}
         
-        {% if user.is_authenticated %}
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button class="logout-button" type="submit">Se déconnecter</button>
-        </form>
-
-        {% else %}
-            <a class="connexion" href="/login/">Connexion</a>
-            <a class="connexion" href="/register/">S'inscire</a>
-        {% endif %}
-        
         <a class="adherer" href="">Adhérer</a>
     </div>
 </header>

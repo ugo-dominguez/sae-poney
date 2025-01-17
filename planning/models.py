@@ -2,8 +2,9 @@ from datetime import datetime, timedelta
 
 from django.db import models
 from django.db.models import Count
+from django.shortcuts import get_object_or_404
 
-from home.models import Cours
+from home.models import Cours, Inscrire
 from login.models import CustomUser
 
 
@@ -16,6 +17,24 @@ DAYS = {
     5: "Samedi",
     6: "Dimanche",
 }
+
+def get_reserved_courses(request, year, week_number):
+    reserved_courses = []
+    iduser = request.user.id
+    if iduser is None: return reserved_courses
+    user = get_object_or_404(CustomUser, pk=iduser)
+
+    start_of_week, end_of_week = get_week(year, week_number)
+    courses = Cours.objects.annotate(nb_inscriptions=Count('inscriptions')).filter(
+        dateCou__range=(start_of_week, end_of_week)
+    )
+
+    for course in courses:
+        if Inscrire.objects.filter(idCours=course, idAdh=user).exists():
+            reserved_courses.append(course)
+
+    return reserved_courses
+
 
 def get_week(year, week_number):
     first_day_of_year = datetime(year, 1, 1)

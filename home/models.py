@@ -66,7 +66,15 @@ class Inscrire(models.Model):
         Cours, on_delete=models.CASCADE, related_name="inscriptions"
     )
     idAdh = models.ForeignKey(
-        Adherent, on_delete=models.CASCADE, related_name="inscriptions"
+        CustomUser, on_delete=models.CASCADE, related_name="inscriptions"
     )
     paye = models.BooleanField()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['idCours', 'idAdh'],
+                name='unique_inscription'
+            )
+        ]
 

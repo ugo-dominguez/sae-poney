@@ -13,7 +13,7 @@
         "model": "home.cours", 
         "pk": 1, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 1,
             "dateCou": "2025-01-16T09:00:00Z",
             "duree": 1,
@@ -24,7 +24,7 @@
         "model": "home.cours", 
         "pk": 2, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 1,
             "dateCou": "2025-01-16T09:00:00Z",
             "duree": 1,
@@ -35,7 +35,7 @@
         "model": "home.cours", 
         "pk": 3, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 10,
             "dateCou": "2025-01-14T09:00:00Z",
             "duree": 1,
@@ -46,7 +46,7 @@
         "model": "home.cours", 
         "pk": 4, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 10,
             "dateCou": "2025-01-14T09:00:00Z",
             "duree": 1,
@@ -57,7 +57,7 @@
         "model": "home.cours", 
         "pk": 5, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 10,
             "dateCou": "2025-01-14T09:00:00Z",
             "duree": 1,
@@ -68,7 +68,7 @@
         "model": "home.cours", 
         "pk": 6, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 10,
             "dateCou": "2025-01-15T09:00:00Z",
             "duree": 1,
@@ -79,7 +79,7 @@
         "model": "home.cours", 
         "pk": 7, 
         "fields": {
-            "idMon": 1,
+            "idMon_id": 1,
             "nbPersMax": 10,
             "dateCou": "2025-01-13T09:00:00Z",
             "duree": 1,
