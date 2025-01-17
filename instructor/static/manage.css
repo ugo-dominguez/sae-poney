@@ -85,6 +85,8 @@
     border-radius: 16px;
     padding: 10px;
     min-width: 20%;
+    max-height: 600 px;
+    overflow-y: scroll;
 }
 
 .lesson {
@@ -97,3 +99,10 @@
 .lesson * {
     margin: 5px;
 }
+
+.dashboard-container {
+    display: flex; 
+    gap: 20px; 
+    display:flex; 
+    justify-content:center
+} 
