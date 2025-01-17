@@ -1,4 +1,4 @@
-from django.contrib import messages  # Import pour les messages
+from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
@@ -28,18 +28,27 @@ def add_cours(request):
 @user_passes_test(lambda u: u.is_superuser)
 def accept_private_lesson(request, id):
     demande = Demande.objects.get(idDemande=id)
-    demande.accepte = True
-    demande.save()
     
-    Cours.objects.create(
-        idMon = request.user,
-        nbPersMax=1,
-        dateCou=demande.dateCou,
-        duree=demande.duree,
-        prixCou=10, # TODO mettre un vrai prix
-    )
+    if demande and not demande.accepte:
+        try:
+            demande.accepte = True
+            demande.save()
+            
+            Cours.objects.create(
+                idMon = request.user,
+                nbPersMax=1,
+                dateCou=demande.dateCou,
+                duree=demande.duree,
+                prixCou=10,
+            )
+            
+        except Exception:
+            messages.error(request, "Erreur interne")
+        
+        messages.success(request, "Cours accepté avec succès !")
+        return redirect("dashboard")
     
-    messages.success(request, "Cours accepté avec succès !")
+    messages.error(request, "Cours déjà accepté / inexistant")
     return redirect("dashboard")
 
 @user_passes_test(lambda u: u.is_superuser)
