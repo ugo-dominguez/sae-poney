@@ -1,6 +1,6 @@
 # Présentation du projet :
-L'application a été développé à l'aide du framework : Django
-Elle possède plusieurs app Django, tels que `planning`, `home`, `instructor` et bien d'autres.
+L'application a été développé à l'aide du framework : Django 
+Elle possède plusieurs app Django, tels que `planning`, `home`, `instructor` et bien d'autres. 
 Pour l'implémentation de la BD, nous avons utilisé l'ORM fournie par Django. 
 
 # Comment lancer l'application ?
@@ -11,6 +11,9 @@ Il vous suffit d'exécuter les commandes suivantes :
   $ python3 manage.py loaddata data/*.json
   $ python3 manage.py runserver
 ```
+
+Un administrateur par défaut est crée lorsque les données des fichiers json sont ajoutées.
+Le nom d'utilisateur et le mot de passe sont : `admin`. 
 
 # Fonctionnalités utilisateurs :
 - La visualisation et le tri des poneys du club
