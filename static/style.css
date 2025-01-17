@@ -1,22 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 html, body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    position: relative;
     width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
+body::after {
+    content: '';
+    display: block;
+    height: 150px;
+  }
+
 footer {
-    margin-top: auto;
+    position: absolute;
     bottom: 0;
     left: 0;
-    width: calc(100% - 60px);
-    height: 15%;
+    right: 0;
+    height: 130px;
     color: white;
     padding: 10px 30px;
     background-color: #1a1a1a;
@@ -100,13 +104,4 @@ header .actions a.connexion:hover {
     border: #a13131 2px solid;
     color: #a13131;
     background-color: transparent;
-}
-
-.form-errors {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
 }

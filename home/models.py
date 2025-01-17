@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from login.models import CustomUser
 
 from django.db import models
-
+from django.db.models import Count
 
 class Personne(models.Model):
     idPers = models.AutoField(primary_key=True)
@@ -27,6 +27,7 @@ class Poney(models.Model):
 
 class Cours(models.Model):
     idCours = models.AutoField(primary_key=True)
+    idMon = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     idMon = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     nbPersMax = models.IntegerField()
     dateCou = models.DateTimeField()
