@@ -9,7 +9,7 @@ from .forms import CoursForm, PoneyForm
 from .models import ajouter_cours, ajouter_poney
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@user_passes_test(lambda u: u.is_instructor)
 def add_cours(request):
     if request.method == "POST":
         form = CoursForm(request.POST)
@@ -25,7 +25,7 @@ def add_cours(request):
         return redirect("dashboard")
 
 
-@user_passes_test(lambda u: u.is_superuser)
+@user_passes_test(lambda u: u.is_instructor)
 def accept_private_lesson(request, id):
     demande = Demande.objects.get(idDemande=id)
     
@@ -51,7 +51,8 @@ def accept_private_lesson(request, id):
     messages.error(request, "Cours déjà accepté / inexistant")
     return redirect("dashboard")
 
-@user_passes_test(lambda u: u.is_superuser)
+
+@user_passes_test(lambda u: u.is_instructor)
 def add_poney(request):
     if request.method == "POST":
         form = PoneyForm(request.POST)
@@ -67,7 +68,8 @@ def add_poney(request):
     else:
         return redirect("dashboard")
 
-@user_passes_test(lambda u: u.is_superuser)
+
+@user_passes_test(lambda u: u.is_instructor)
 def dashboard(request):
     # Lessons
     lessons = Cours.objects.filter(idMon=request.user)

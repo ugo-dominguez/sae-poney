@@ -6,14 +6,15 @@
     <nav>
         <a href="/">Accueil</a>
         <a href="/listponey/">Poneys</a>
-        <a href="/planning/">Planning</a>
-        <a href="">Contact</a>
-        {% if user.is_authenticated and user.is_staff %}
+        <a href="/default_planning/">Planning</a>
+        {% if user.is_authenticated and user.is_instructor %}
             <a href="{% url 'dashboard' %}">Tableau de bord</a>
         {% endif %}
     </nav>
     
+    
     <h1>Poney Club Orléans</h1>
+    
     
     <div class="actions">
         {% if user.is_authenticated %}
@@ -24,7 +25,7 @@
 
         {% else %}
             <a class="connexion" href="/login/">Connexion</a>
-            <a class="connexion" href="/register/">S'inscire</a>
+            <a class="connexion" href="/register/">S'inscrire</a>
         {% endif %}
         
         <a class="adherer" href="">Adhérer</a>
