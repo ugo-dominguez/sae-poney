@@ -1,0 +1,88 @@
+.planning {
+    padding: 20px;
+    text-align: center;
+}
+
+.planning h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.planning h2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+  
+.week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+  
+.day {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: left;
+}
+  
+.day-header {
+    background-color: #f4ede8;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+  
+.course {
+    text-align: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.course p {
+    margin: 0 0 10px;
+}
+  
+.book {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+  
+.book:hover {
+    opacity: 0.9;
+}
+  
+.available button {
+    background-color: #a992f4;
+    color: white;
+}
+  
+.full {
+    background-color: #ffe6f5;
+    color: #e60073;
+    text-align: center;
+}
+  
+.full span {
+    font-weight: bold;
+}
+  
+.reserved {
+    background-color: #c2f3d4;
+}
+  
+.reserved button {
+    background-color: #6bcf8d;
+    color: white;
+}
+  

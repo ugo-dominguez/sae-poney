@@ -1,0 +1,67 @@
+{% extends "base-header.html" %}
+{% load static %}
+
+{% block title %}Inscription{% endblock %}
+{% if form.non_field_errors %}
+<div class="form-errors">
+    {% for error in form.non_field_errors %}
+    <p class="error-message">{{ error }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% block styles %}
+<link href="{% static 'style-register.css'%}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block content %}
+<div class="register-page">
+    <div class="register-form-container">
+        <h1>Inscription</h1>
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="id_username">Nom d'utilisateur</label>
+                {{ form.username }}
+                <div class="error">{{ form.username.errors }}</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_last_name">Nom</label>
+                {{ form.last_name }}
+                <div class="error">{{ form.last_name.errors }}</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_first_name">Prénom</label>
+                {{ form.first_name }}
+                <div class="error">{{ form.first_name.errors }}</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_email">E-mail</label>
+                {{ form.email }}
+                <div class="error">{{ form.email.errors }}</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password1">Mot de passe</label>
+                {{ form.password1 }}
+                <div class="error">{{ form.password1.errors }}</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="id_password2">Confirmer le mot de passe</label>
+                {{ form.password2 }}
+                <div class="error">{{ form.password2.errors }}</div>
+            </div>            
+
+            <div class="form-actions">
+                <button type="submit" class="submit-button">Continuer</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

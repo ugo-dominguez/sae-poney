@@ -1,0 +1,108 @@
+/* Formulaires */
+.ajout_bd {
+    display: flex;
+    flex-direction: column;
+}
+
+.ajout_bd p {
+    margin-top: 0px;
+}
+
+.ajout_bd h1 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #4d3427;
+    margin-bottom: 20px;
+}
+
+.ajout_bd input, .ajout_bd textarea, .ajout_bd select {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.ajout_bd input:focus, .ajout_bd textarea:focus, .ajout_bd select:focus {
+    outline: none;
+    border-color: #4d3427;
+    box-shadow: 0 0 5px rgba(77, 52, 39, 0.3);
+}
+
+.ajout_bd button[type="submit"] {
+    background-color: #4d3427;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+}
+
+.ajout_bd button[type="submit"]:hover {
+    background-color: #5e4031;
+}
+
+/* Messages */
+.messages {
+    margin: 20px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.message {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 50px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Dashboard */
+.dashboard-section {
+    background-color: #f8f4ec;
+    border-radius: 16px;
+    padding: 10px;
+    min-width: 20%;
+    max-height: 600 px;
+    overflow-y: scroll;
+}
+
+.lesson {
+    margin-top: 10px;
+    background-color: #CFDFCD;
+    padding: 5px;
+    border-radius: 11px;
+}
+
+.lesson * {
+    margin: 5px;
+}
+
+.dashboard-container {
+    display: flex; 
+    gap: 20px; 
+    display:flex; 
+    justify-content:center
+} 
