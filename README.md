@@ -7,8 +7,9 @@ Pour l'implémentation de la BD, nous avons utilisé l'ORM fournie par Django.
 Il vous suffit d'exécuter les commandes suivantes :
 ```bash
   $ pip install -r requirements.txt
+  $ python3 manage.py makemigrations
   $ python3 manage.py migrate
-  $ python3 manage.py loaddata data/*.json
+  $ python3 manage.py loaddata data/*.json # Optionnel
   $ python3 manage.py runserver
 ```
 
@@ -37,9 +38,14 @@ Pour injécter des données (admin, cours et poneys) :
   $ python3 manage.py loaddata data/*.json
 ```
 
-Pour créer un admin manuellement : 
+Pour créer un admin : 
 ```bash
   $ python3 manage.py createsuperuser
+```
+
+Pour créer un moniteur :
+```bash
+  $ python3 manage.py add_instructor <username> <email> <password>
 ```
 
 Pour vider la BD : 
