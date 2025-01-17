@@ -5,7 +5,6 @@ from login.models import CustomUser
 from django.db import models
 from django.db.models import Count
 
-
 class Personne(models.Model):
     idPers = models.AutoField(primary_key=True)
     nomPers = models.CharField(max_length=42)
