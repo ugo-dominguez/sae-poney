@@ -1,21 +1,35 @@
 from datetime import datetime
 
 from django.db import transaction
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 
 from .models import get_week, get_courses_by_week
-from home.models import Cours, Inscrire
+from home.models import Inscrire, Cours
+from login.models import CustomUser
 
 
 def reserver_cours(request, id_cours):
-    cours = get_object_or_404(Cours, idCours=id_cours)
-    user = request.get("user")
+    try:
+        idadh = request.user.id
+        user = get_object_or_404(CustomUser, pk=idadh)
 
-    if not user.cotisationPaye:
-        raise ValueError("L'adhérent n'a pas payé sa cotisation.")
+        if not user.adherent:
+            raise ValueError("L'adhérent n'a pas payé sa cotisation.")
+        
+        with transaction.atomic():
+            course = Cours.objects.get(idCours=id_cours)
+            Inscrire.objects.create(idCours=course, idAdh=user, paye=True)
+            
+        messages.success(request, "Inscription réussie!")
+        
+    except AttributeError as e:
+        messages.error(request, "Vous n'êtes pas connecté !")
+    except Exception as e:
+        messages.error(request, "Une erreur s'est produite lors de l'inscription.")
     
-    with transaction.atomic():
-        Inscrire.objects.create(idCours=cours, idAdh=user, paye=True)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/default_planning/'))
 
 
 def manage_action(request, year, week_number):

@@ -11,6 +11,15 @@
 <div class="planning">
     <h1>Planning</h1>
     <h2>{{ start }} - {{ end }}</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="form-errors">
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <div class="week">
 
         <div class="week-navigation">
@@ -31,18 +40,11 @@
                         <div class="course available">
                             <p>Cours de poney</p>
                             <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
-                            <form method="post" action="{% url 'reserver_cours' cours.idCours %}">
+                            <form method="post" action="{% url 'reserver_cours' id_cours=course.idCours %}">
                                 {% csrf_token %}
-                                <button class="book" type="submit">Inscrire</button>
-                            </form>
+                                <button class="book" type="submit">S'inscrire</button>
+                            </form> 
                         </div>
-                    {% endif %}
-                    {% if messages %}
-                        <ul>
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
                     {% endif %}
                 {% endfor %}
             </div>
