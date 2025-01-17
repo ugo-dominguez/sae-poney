@@ -1,8 +1,21 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.db import transaction
+from django.shortcuts import render, get_object_or_404
 
 from .models import get_week, get_courses_by_week
+from home.models import Cours, Inscrire
+
+
+def reserver_cours(request, id_cours):
+    cours = get_object_or_404(Cours, idCours=id_cours)
+    user = request.get("user")
+
+    if not user.cotisationPaye:
+        raise ValueError("L'adhérent n'a pas payé sa cotisation.")
+    
+    with transaction.atomic():
+        Inscrire.objects.create(idCours=cours, idAdh=user, paye=True)
 
 
 def manage_action(request, year, week_number):
@@ -27,7 +40,7 @@ def manage_action(request, year, week_number):
 def planning(request, 
         year=datetime.now().year,
         week_number=datetime.now().isocalendar().week):
-    
+    print(request.__dict__.get("user"))
     year, week_number = manage_action(request, year, week_number)
 
     start, end = get_week(year, week_number)

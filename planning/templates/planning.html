@@ -31,8 +31,18 @@
                         <div class="course available">
                             <p>Cours de poney</p>
                             <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
-                            <button class="book">Réserver</button>
+                            <form method="post" action="{% url 'reserver_cours' cours.idCours %}">
+                                {% csrf_token %}
+                                <button class="book" type="submit">Inscrire</button>
+                            </form>
                         </div>
+                    {% endif %}
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
                     {% endif %}
                 {% endfor %}
             </div>
