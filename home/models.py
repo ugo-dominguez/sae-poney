@@ -1,8 +1,12 @@
+
 from django.contrib.auth.models import User
 from login.models import CustomUser
+from datetime import datetime, timedelta
 
 from django.db import models
 from django.db.models import Count
+
+from login.models import CustomUser
 
 class Personne(models.Model):
     idPers = models.AutoField(primary_key=True)
@@ -46,6 +50,21 @@ class Cours(models.Model):
             ),
         ]
 
+
+class Demande(models.Model):
+    demandeur = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    idDemande = models.AutoField(primary_key=True)
+    dateCou = models.DateTimeField()
+    duree = models.PositiveSmallIntegerField()
+    accepte = models.BooleanField()
+    
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=models.Q(duree__gte=1) & models.Q(duree__lte=2),
+                name="demande_check_duree_range"
+            ),
+        ]
 
 class Participer(models.Model):
     idCours = models.ForeignKey(
