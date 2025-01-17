@@ -50,4 +50,10 @@
 
     </div>
   </div>
+
+  <form class="ajout_bd" method="POST" action="{% url 'ask_private_lesson' %}">
+    {% csrf_token %}
+    {{ private_lesson_form.as_p }}
+    <button type="submit">Demander</button>
+</form>
 {% endblock %}

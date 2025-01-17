@@ -56,6 +56,18 @@
                 <button type="submit">Ajouter</button>
             </form>
         </div>
+
+        <div class="dashboard-section">
+            <h3>Demandes de cours privés</h2>
+            
+                {% for lesson in private_lessons %}
+                <div class="lesson">
+                    <h4>Demande pour le {{lesson.dateCou}}</h4>
+                    <p>{{lesson.duree}} heure.s</p>
+                    <a href="{% url 'accept_private_lesson' lesson.idDemande %}">Accepter</a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </main>
 
