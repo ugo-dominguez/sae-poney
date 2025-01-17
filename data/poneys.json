@@ -1,0 +1,68 @@
+[
+    {
+        "model": "login.customuser", 
+        "pk": 1, 
+        "fields": {
+            "password": "pbkdf2_sha256$870000$nOvRKx4FlGHWGdi5c3Qckk$qVEWHX0Vw9VtPeyT15b9KJxHFkLWO4U/LmBpsfDxodQ=",
+            "last_login": "2025-01-17 21:04:43.585755", 
+            "is_superuser": 1,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": 1,
+            "is_active": 1,
+            "date_joined": "2025-01-17 21:03:49.010378",
+            "adherent": 0,
+            "is_instructor": 0
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 1,
+        "fields": {
+            "nomPon": "John",
+            "poidsMax": 100
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 2,
+        "fields": {
+            "nomPon": "Tom",
+            "poidsMax": 65
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 3,
+        "fields": {
+            "nomPon": "Patrick",
+            "poidsMax": 90
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 4,
+        "fields": {
+            "nomPon": "Cheval",
+            "poidsMax": 78
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 5,
+        "fields": {
+            "nomPon": "Pénélope",
+            "poidsMax": 112
+        }
+    },
+    {
+        "model": "home.poney",
+        "pk": 6,
+        "fields": {
+            "nomPon": "Bruce",
+            "poidsMax": 123
+        }
+    }
+]

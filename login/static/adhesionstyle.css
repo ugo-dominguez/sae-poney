@@ -1,0 +1,56 @@
+.adhesion-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f9f9f9;
+}
+
+.adhesion-container {
+    background-color: #fdf6ec;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.adhesion-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.adhesion-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.adhesion-button.non {
+    background-color: #ccc;
+    color: black;
+}
+
+.adhesion-button.non:hover {
+    background-color: #aaa;
+}
+
+.adhesion-button.oui {
+    background-color: #8B4513;
+    color: white;
+}
+
+.adhesion-button.oui:hover {
+    background-color: #5c3317;
+}

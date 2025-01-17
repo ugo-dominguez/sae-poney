@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+html, body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 150px;
+  }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 130px;
+    color: white;
+    padding: 10px 30px;
+    background-color: #1a1a1a;
+}
+
+header {
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f4ec;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+  
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+  
+
+nav a:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+header .actions {
+    display: flex;
+    gap: 10px;
+}
+
+header .actions a, .logout-button {
+    text-decoration: none;
+    background-color: #4d3427;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+header .actions a:hover {
+    background-color: #5e4031;
+}
+
+header .actions a.connexion {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #4d3427;
+    padding: 8px 12px;
+}
+
+header .actions a.connexion:hover { 
+    background-color: #4d3427;
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: #a13131;
+    color: white;
+}
+
+.logout-button {
+    border: #a13131 2px solid;
+    color: #a13131;
+    background-color: transparent;
+}
+
+.form-errors {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

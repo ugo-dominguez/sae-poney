@@ -1,0 +1,30 @@
+{% extends "base-header.html" %}
+{% load static %}
+{% load planning_filters %}
+{% load planning_filters %}
+{% block title %} Planning {% endblock %}
+
+{% block styles %}
+<link href="{% static 'manage.css'%}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container" style="align-items: center; justify-content:center; height:50vh; flex-direction:column;">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="dashboard-section" style="overflow: hidden;">
+    <h3>Demander un cours particulier</h2>
+    <form class="ajout_bd" method="POST" action="{% url 'ask_private_lesson' %}">
+        {% csrf_token %}
+        {{ private_lesson_form.as_p }}
+        <button type="submit">Demander</button>
+    </form>
+</div>
+</div>
+{% endblock %}

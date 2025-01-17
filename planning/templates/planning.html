@@ -1,0 +1,68 @@
+{% extends "base-header.html" %}
+{% load static %}
+{% load planning_filters %}
+{% load planning_filters %}
+{% block title %} Planning {% endblock %}
+
+{% block styles %}
+<link href="{% static 'style-planning.css'%}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<div class="planning">
+    <h1>Planning</h1>
+    <h2>{{ start }} - {{ end }}</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="form-errors">
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="week">
+
+        <div class="week-navigation">
+            <a href="{% url 'planning' year=year week_number=week %}?action=prev" class="week-button prev">&lt;</a>
+        </div>
+
+        {% for day, courses in week_planning.items %}
+            <div class="day">
+                <div class="day-header">{{ day }}</div>
+                {% for course in courses %}
+                    {% if reserved|contains:course %}
+                        <div class="course reserved">
+                            <p>Cours de poney</p>
+                            <form method="post" action="{% url 'annuler_reserv' id_cours=course.idCours %}">
+                                {% csrf_token %}
+                                <button class="unbook">Annuler la réservation</button>
+                            </form> 
+                        </div>
+                    {% elif course.nb_inscriptions >= course.nbPersMax %}
+                        <div class="course full">
+                            <p>Cours de poney</p>
+                            <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <span>PLEIN</span>
+                        </div>
+                    {% elif course.nb_inscriptions < course.nbPersMax %}
+                        <div class="course available">
+                            <p>Cours de poney</p>
+                            <p>{{ course.dateCou|hour }}h - {{ course.dateCou|hour:course.duree }}h</p>
+                            <form method="post" action="{% url 'reserver_cours' id_cours=course.idCours %}">
+                                {% csrf_token %}
+                                <button class="book" type="submit">S'inscrire</button>
+                            </form> 
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <div class="week-navigation">
+            <a href="{% url 'planning' year=year week_number=week %}?action=next" class="week-button next">&gt;</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
